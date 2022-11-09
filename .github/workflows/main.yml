@@ -8,7 +8,7 @@ on:
 
 
 jobs:
-  builD:
+  build:
     runs-on: ubuntu-latest
 
 
@@ -20,7 +20,7 @@ jobs:
         run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }}
 
       - name: "Buliding Docker Images"
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my_image .
+        run: docker build -t shokry29/my_image .
 
       - name: "Pushing to Ducker HUb" 
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/my_image
+        run: docker push shokry29/my_image
