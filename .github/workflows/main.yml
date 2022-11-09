@@ -6,19 +6,21 @@ on:
 
 
 
+
 jobs:
-  build:
+  builD:
     runs-on: ubuntu-latest
 
 
     steps:
-      - uses : actions/checkout@v3
 
-      - name : "Log in To Docker Hub"
-        run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_TOKEN }} 
+      - uses: actions/checkout@v3
 
-      - name : "Building Docker Image"
+      - name:  "Login to Ducker hub"
+        run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DTOKEN_TOKEN }}
+
+      - name: "Buliding Docker Images"
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my_image .
 
-      - name : "Pushing To Docker Hub"
-        run : docker push ${{ secrets.DOCKER_USERNAME }}/my_image
+      - name: "Pushing to Ducker HUb" 
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/my_image
